@@ -9,19 +9,30 @@ def is_pair( n: int ) -> bool:
 def main() -> None:
     while True:
         a: str = input( 'Entrer un nombre: ' )
+        symbole: str = ''
+
+        if '-' in a:
+            a = a.replace( '-', '' )
+            symbole = '-'
+        elif '+' in a:
+            a = a.replace( '+', '' )
+            symbole = '+'
 
         if a.isdigit():
+            n: str = a if symbole == '+' else f'-{ a }'
             if is_pair( int( a ) ):
-                print( f'>> { a } est pair.' )
+                print( f'>> { n } est pair.' )
                 break
             else:
-                print( f'>> { a } est impair.' )
+                print( f'>> { n } est impair.' )
                 break
         elif a.replace( ' ', '' ) == '':
             continue
         else:
-            print( f'!> { a } n\'est pas un nombre. ' )
+            print( f'!> { n } n\'est pas un nombre. ' )
             continue
+
+
 
 if __name__ == '__main__':
     try:
