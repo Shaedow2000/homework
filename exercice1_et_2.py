@@ -18,8 +18,9 @@ def main() -> None:
             a = a.replace( '+', '' )
             symbole = '+'
 
+        n: str = a if symbole == '+' else f'-{ a }'
+        
         if a.isdigit():
-            n: str = a if symbole == '+' else f'-{ a }'
             if is_pair( int( a ) ):
                 print( f'>> { n } est pair.' )
                 break
